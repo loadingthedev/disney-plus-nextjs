@@ -8,13 +8,14 @@ import Hero from "../../components/Hero"
 import ReactPlayer from "react-player"
 import { useRouter } from "next/router"
 
-const Movie = ({ result }) => {
+const Show = ({ result }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/"
   const [session] = useSession()
   const [showPlayer, setShowPlayer] = useState(false)
   const router = useRouter()
 
   const index = result.videos.results.findIndex((el) => el.type === "Trailer")
+  console.log(result)
 
   useEffect(() => {
     if (!session) {
@@ -83,7 +84,8 @@ const Movie = ({ result }) => {
 
             <p className="text-xs md:text-sm">
               {result.release_date || result.first_air_date}.{" "}
-              {Math.floor(result.runtime / 60)}h {result.runtime % 60}m.{" "}
+              {/* {Math.floor(result.runtime / 60)}h {result.runtime % 60}m.{" "} */}
+              {result.number_of_seasons + " "}Seasons{" "}
               {result.genres.map((genre) => genre.name + " ")}{" "}
             </p>
             <h4 className="text-sm md:text-lg max-w-4xl">{result.overview}</h4>
@@ -128,7 +130,7 @@ const Movie = ({ result }) => {
   )
 }
 
-export default Movie
+export default Show
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context)
@@ -136,7 +138,7 @@ export const getServerSideProps = async (context) => {
   console.log(id)
 
   const request = await fetch(`
-https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US&append_to_response=videos`).then(
+https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.API_KEY}&language=en-US&append_to_response=videos`).then(
     (res) => res.json()
   )
 

@@ -1,4 +1,4 @@
-import MovieThumbnail from "./MovieThumbnail"
+import Thumbnail from "./Thumbnail"
 
 const MoviesCollection = ({ results, title }) => {
   // console.log(results)
@@ -11,7 +11,7 @@ const MoviesCollection = ({ results, title }) => {
       "
       >
         {results.map((result) => (
-          <MovieThumbnail key={result.id} result={result} />
+          <Thumbnail key={result.id} result={result} type="movie" />
         ))}
       </div>
     </div>
