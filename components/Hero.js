@@ -42,7 +42,9 @@ const Hero = () => {
       <div className="absolute bottom-2 flex justify-center w-full text-black">
         <div
           className=" bg-[#f9f9f9] rounded px-2 py-1 flex items-center justify-center cursor-pointer"
-          onClick={() => router.push("https://github.com/loadingthedev")}
+          onClick={() =>
+            router.push("https://github.com/loadingthedev/disney-plus-nextjs")
+          }
         >
           <Image
             src="/images/github.png"
