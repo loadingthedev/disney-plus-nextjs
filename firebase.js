@@ -2,13 +2,13 @@ import firebase from "firebase"
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBeFrvY1R63rOQdmR-UTGBF4eE1wL_nr2E",
-  authDomain: "disney-clone-auth.firebaseapp.com",
-  projectId: "disney-clone-auth",
-  storageBucket: "disney-clone-auth.appspot.com",
-  messagingSenderId: "172636952665",
-  appId: "1:172636952665:web:66aef0dc3684d5344a3948",
-  measurementId: "G-C42EWQ5Y0H",
+  apiKey: process.env.FBASE_API_KEY,
+  authDomain: process.env.FBASE_AUTH_DOMAIN,
+  projectId: process.env.FBASE_PROJECT_ID,
+  storageBucket: process.env.FBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FBASE_messagingSenderId,
+  appId: process.env.FBASE_appId,
+  measurementId: process.env.FBASE_measurementId,
 }
 
 const app = !firebase.apps.length
