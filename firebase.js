@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import firebase from "firebase";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -9,12 +9,12 @@ const firebaseConfig = {
   messagingSenderId: process.env.FBASE_messagingSenderId,
   appId: process.env.FBASE_appId,
   measurementId: process.env.FBASE_measurementId,
-}
+};
 
 const app = !firebase.apps.length
   ? firebase.initializeApp(firebaseConfig)
-  : firebase.app()
+  : firebase.app();
 
-const db = app.firestore()
+const db = app.firestore();
 
-export { db }
+export { db };
