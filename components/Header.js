@@ -1,16 +1,16 @@
-import { useRouter } from "next/router"
-import { getSession, signIn, signOut, useSession } from "next-auth/client"
-import Image from "next/image"
+import { useRouter } from "next/router";
+import { getSession, signIn, signOut, useSession } from "next-auth/client";
+import Image from "next/image";
 import {
   HomeIcon,
   PlusIcon,
   SearchIcon,
   StarIcon,
-} from "@heroicons/react/solid"
+} from "@heroicons/react/solid";
 
 const Header = () => {
-  const [session] = useSession()
-  const router = useRouter()
+  const [session] = useSession();
+  const router = useRouter();
 
   return (
     <header className="sticky top-0 bg-[#040714] h-[72px] flex z-[999]  items-center px-10 md:px-12">
@@ -54,7 +54,7 @@ const Header = () => {
       {!session ? (
         <button
           className="ml-auto uppercase py-1.5 rounded font-medium px-4 border tracking-wide hover:bg-white hover:text-black transition duration-200"
-          onClick={signIn}
+          onClick={() => signIn("google")}
         >
           Login
         </button>
@@ -67,7 +67,7 @@ const Header = () => {
         />
       )}
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
